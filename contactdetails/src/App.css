@@ -1,0 +1,6 @@
+.center-col {
+  flex: 1;
+  background: rgb(229, 226, 226);
+  overflow-y: scroll;
+}
+
