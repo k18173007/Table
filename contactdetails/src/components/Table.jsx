@@ -1,356 +1,232 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
+import { Save, Granted, Rejected } from './ContactDetails'
 
-const URL = '  http://localhost:3001/Contact'
+const SaveData = (props) => {
+  Save.push(props)
 
-const Table = () => {
-  const [data, setData] = useState([])
-
-  useEffect(() => {
-    getData()
-  }, [])
-
-  const getData = async () => {
-    const response = await axios.get(URL)
-    setData(response.data)
-  }
-
-  const removeData = (id) => {
-    axios.delete(`${URL}/${id}`).then((res) => {
-      const del = data.filter((employee) => id !== employee.id)
-      setData(del)
-    })
-  }
-
-  const saveTable = (
-    id,
-    ReqTime,
-    Time,
-    DriverName,
-    HospitalName,
-    PatientName,
-    PatientCase,
-    level,
-  ) => {
-    console.log(
-      ReqTime,
-      Time,
-      DriverName,
-      HospitalName,
-      PatientName,
-      PatientCase,
-      level,
-    )
-
-    const Export = {
-      ReqTime: ReqTime,
-      Time: Time,
-      HospitalName: HospitalName,
-      PatientName: PatientName,
-      PatientCase: PatientCase,
-      DriverName: DriverName,
-      level: level,
-    }
-    Export.date = new Date().toISOString()
-
-    return fetch('http://localhost:3001/' + 'save', {
-      method: 'POST',
-      body: JSON.stringify(Export),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'same-origin',
-    })
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response
-          } else {
-            var error = new Error(
-              'Error ' + response.status + ': ' + response.statusText,
-            )
-            error.response = response
-            throw error
-          }
-        },
-        (error) => {
-          throw error
-        },
-      )
-      .then(removeData(id))
-      .catch((error) => {
-        console.log('post comments', error.message)
-        alert('Your comment could not be posted\nError: ' + error.message)
-      })
-  }
-  const grandTable = (
-    id,
-    ReqTime,
-    Time,
-    DriverName,
-    HospitalName,
-    PatientName,
-    PatientCase,
-    level,
-  ) => {
-    console.log(
-      ReqTime,
-      Time,
-      DriverName,
-      HospitalName,
-      PatientName,
-      PatientCase,
-      level,
-    )
-
-    const Export = {
-      ReqTime: ReqTime,
-      Time: Time,
-      HospitalName: HospitalName,
-      PatientName: PatientName,
-      PatientCase: PatientCase,
-      DriverName: DriverName,
-      level: level,
-    }
-    Export.date = new Date().toISOString()
-
-    return fetch('http://localhost:3001/' + 'granted', {
-      method: 'POST',
-      body: JSON.stringify(Export),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'same-origin',
-    })
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response
-          } else {
-            var error = new Error(
-              'Error ' + response.status + ': ' + response.statusText,
-            )
-            error.response = response
-            throw error
-          }
-        },
-        (error) => {
-          throw error
-        },
-      )
-      .then(removeData(id))
-      .catch((error) => {
-        console.log('post comments', error.message)
-        alert('Your comment could not be posted\nError: ' + error.message)
-      })
-  }
-  const deleteTable = (
-    id,
-    ReqTime,
-    Time,
-    DriverName,
-    HospitalName,
-    PatientName,
-    PatientCase,
-    level,
-  ) => {
-    console.log(
-      ReqTime,
-      Time,
-      DriverName,
-      HospitalName,
-      PatientName,
-      PatientCase,
-      level,
-    )
-
-    const Export = {
-      ReqTime: ReqTime,
-      Time: Time,
-      HospitalName: HospitalName,
-      PatientName: PatientName,
-      PatientCase: PatientCase,
-      DriverName: DriverName,
-      level: level,
-    }
-    Export.date = new Date().toISOString()
-
-    return fetch('http://localhost:3001/' + 'reject', {
-      method: 'POST',
-      body: JSON.stringify(Export),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'same-origin',
-    })
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response
-          } else {
-            var error = new Error(
-              'Error ' + response.status + ': ' + response.statusText,
-            )
-            error.response = response
-            throw error
-          }
-        },
-        (error) => {
-          throw error
-        },
-      )
-      .then(removeData(id))
-      .catch((error) => {
-        console.log('post comments', error.message)
-        alert('Your comment could not be posted\nError: ' + error.message)
-      })
-  }
-
-  const renderHeader = () => {
-    let headerElement = [
-      'id',
-      'Request',
-      'Time',
-      'Drivername',
-      'hospitalName',
-      'patientName',
-      'patientCase',
-      'level',
-      '',
-      '',
-      '',
-      '',
-    ]
-
-    return headerElement.map((key, index) => {
-      return <th key={index}>{key.toUpperCase()}</th>
-    })
-  }
-  const renderBody = () => {
+  let data = Save.map((props) => {
     return (
-      data &&
-      data.map(
-        ({
-          id,
-          ReqTime,
-          Time,
-          DriverName,
-          HospitalName,
-          PatientName,
-          PatientCase,
-          level,
-        }) => {
-          return (
-            <tr key={id}>
-              <td>{id}</td>
-              <td>{ReqTime}</td>
-              <td>{Time}</td>
-              <td>{DriverName}</td>
-              <td>{HospitalName}</td>
-              <td>{PatientName}</td>
-              <td>{PatientCase}</td>
-              <td>{level}</td>
-              <td>
-                <div className="bs-example">
-                  <div
-                    className="btn-group btn-sm btn-group-toggle"
-                    data-toggle="buttons"
-                  >
-                    <label className="btn btn-sm btn-warning">
-                      <input type="radio" name={id} autocomplete="off" />A
-                    </label>
-                    <label className="btn btn-sm btn-danger active">
-                      <input
-                        type="radio"
-                        name={id}
-                        autocomplete="off"
-                        checked
-                      />
-                      B
-                    </label>
-                    <label className="btn btn-sm btn-info">
-                      <input type="radio" name={id} autocomplete="off" />C
-                    </label>
-                  </div>
-                </div>
-              </td>
-              <td className="opration">
-                <button
-                  style={{ borderRadius: '0' }}
-                  className="btn btn-success btn-sm"
-                  onClick={() =>
-                    saveTable(
-                      id,
-                      ReqTime,
-                      Time,
-                      DriverName,
-                      HospitalName,
-                      PatientName,
-                      PatientCase,
-                      level,
-                    )
-                  }
-                >
-                  Save
-                </button>
-              </td>
-              <td className="opration">
-                <button
-                  style={{ borderRadius: '0' }}
-                  className="btn btn-primary btn-sm"
-                  onClick={() =>
-                    grandTable(
-                      id,
-                      ReqTime,
-                      Time,
-                      DriverName,
-                      HospitalName,
-                      PatientName,
-                      PatientCase,
-                      level,
-                    )
-                  }
-                >
-                  Grand
-                </button>
-              </td>
-              <td className="opration">
-                <button
-                  style={{ borderRadius: '0' }}
-                  className="btn btn-danger btn-sm"
-                  onClick={() =>
-                    deleteTable(
-                      id,
-                      ReqTime,
-                      Time,
-                      DriverName,
-                      HospitalName,
-                      PatientName,
-                      PatientCase,
-                      level,
-                    )
-                  }
-                >
-                  Reject
-                </button>
-              </td>
-            </tr>
-          )
-        },
-      )
+      <tr key={props.id}>
+        <td>{props.id}</td>
+        <td>{props.ReqTime}</td>
+        <td>{props.Time}</td>
+        <td>{props.DriverName}</td>
+        <td>{props.HospitalName}</td>
+        <td>{props.PatientName}</td>
+        <td>{props.PatientCase}</td>
+        <td>{props.level}</td>
+      </tr>
     )
-  }
+  })
+  return data
+}
+
+const GrantedData = (props) => {
+  Granted.push(props)
+
+  let data = Granted.map((props) => {
+    return (
+      <tr key={props.id}>
+        <td>{props.id}</td>
+        <td>{props.ReqTime}</td>
+        <td>{props.Time}</td>
+        <td>{props.DriverName}</td>
+        <td>{props.HospitalName}</td>
+        <td>{props.PatientName}</td>
+        <td>{props.PatientCase}</td>
+        <td>{props.level}</td>
+      </tr>
+    )
+  })
+  return data
+}
+
+const RejectedData = (props) => {
+  Rejected.push(props)
+
+  let data = Rejected.map((props) => {
+    return (
+      <tr key={props.id}>
+        <td>{props.id}</td>
+        <td>{props.ReqTime}</td>
+        <td>{props.Time}</td>
+        <td>{props.DriverName}</td>
+        <td>{props.HospitalName}</td>
+        <td>{props.PatientName}</td>
+        <td>{props.PatientCase}</td>
+        <td>{props.level}</td>
+      </tr>
+    )
+  })
+  return data
+}
+
+const RenderRequestBody = (contact) => {
+  return (
+    <tr key={contact.contact.id}>
+      <td value={contact.contact.id}>{contact.contact.id}</td>
+      <td>{contact.contact.ReqTime}</td>
+      <td>{contact.contact.Time}</td>
+      <td>{contact.contact.DriverName}</td>
+      <td>{contact.contact.HospitalName}</td>
+      <td>{contact.contact.PatientName}</td>
+      <td>{contact.contact.PatientCase}</td>
+      <td>{contact.contact.level}</td>
+      <td>
+        <div className="bs-example">
+          <div
+            className="btn-group btn-sm btn-group-toggle"
+            data-toggle="buttons"
+          >
+            <label className="btn btn-sm btn-warning">
+              <input type="radio" name={contact.id} autocomplete="off" />A
+            </label>
+            <label className="btn btn-sm btn-danger active">
+              <input
+                type="radio"
+                name={contact.id}
+                autocomplete="off"
+                checked
+              />
+              B
+            </label>
+            <label className="btn btn-sm btn-info">
+              <input type="radio" name={contact.id} autocomplete="off" />C
+            </label>
+          </div>
+        </div>
+      </td>
+      <td className="opration">
+        <button
+          style={{ borderRadius: '0' }}
+          className="btn btn-success btn-sm"
+          onClick={() => SaveData(contact.contact)}
+        >
+          {' '}
+          Save
+        </button>
+      </td>
+      <td className="opration">
+        <button
+          style={{ borderRadius: '0' }}
+          className="btn btn-primary btn-sm"
+          onClick={() => GrantedData(contact.contact)}
+        >
+          Grand
+        </button>
+      </td>
+      <td className="opration">
+        <button
+          style={{ borderRadius: '0' }}
+          className="btn btn-danger btn-sm"
+          onClick={() => RejectedData(contact.contact)}
+        >
+          Reject
+        </button>
+      </td>
+    </tr>
+  )
+}
+
+export const Table = (props) => {
+  const table = props.request.map((con) => {
+    // console.log("table",con);
+    return <RenderRequestBody contact={con} />
+  })
 
   return (
     <>
       <table style={{ height: '40vh' }} className="table table-striped">
         <thead style={{ background: '#12565d', color: 'aliceblue' }}>
-          <tr>{renderHeader()}</tr>
+          <tr>
+            <th>id</th>
+            <th>Request</th>
+            <th>Time</th>
+            <th>Drivername</th>
+            <th>hospitalName</th>
+            <th>patientName</th>
+            <th>patientCase</th>
+            <th>level</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
         </thead>
-        <tbody>{renderBody()}</tbody>
+        <tbody>{table}</tbody>
       </table>
     </>
   )
 }
 
-export default Table
+export const RejectTable = (props) => {
+  return (
+    <>
+      <table style={{ height: '40vh' }} className="table table-striped">
+        <thead style={{ background: '#12565d', color: 'aliceblue' }}>
+          <tr>
+            <th>id</th>
+            <th>Request</th>
+            <th>Time</th>
+            <th>Drivername</th>
+            <th>hospitalName</th>
+            <th>patientName</th>
+            <th>patientCase</th>
+            <th>level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <RejectedData />
+        </tbody>
+      </table>
+    </>
+  )
+}
+
+export const SaveTable = () => {
+  return (
+    <>
+      <table style={{ height: '40vh' }} className="table table-striped">
+        <thead style={{ background: '#12565d', color: 'aliceblue' }}>
+          <tr>
+            <th>id</th>
+            <th>Request</th>
+            <th>Time</th>
+            <th>Drivername</th>
+            <th>hospitalName</th>
+            <th>patientName</th>
+            <th>patientCase</th>
+            <th>level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <SaveData />
+        </tbody>
+      </table>
+    </>
+  )
+}
+
+export const GrantedTable = (props) => {
+  return (
+    <>
+      <table style={{ height: '40vh' }} className="table table-striped">
+        <thead style={{ background: '#12565d', color: 'aliceblue' }}>
+          <tr>
+            <th>id</th>
+            <th>Request</th>
+            <th>Time</th>
+            <th>Drivername</th>
+            <th>hospitalName</th>
+            <th>patientName</th>
+            <th>patientCase</th>
+            <th>level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <GrantedData />
+        </tbody>
+      </table>
+    </>
+  )
+}

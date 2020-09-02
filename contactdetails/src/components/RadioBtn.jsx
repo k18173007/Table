@@ -12,7 +12,7 @@ const BtnGroup = () => {
         Request
       </Link>
       <Link
-        to="/granted"
+        to="/grant"
         className="bg-secondary text-center text-light mr-1 btn-sm"
         style={{ width: '10%', borderRadius: '0' }}
       >
