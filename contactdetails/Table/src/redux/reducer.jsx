@@ -1,22 +1,16 @@
 import React from 'react'
-import { Granted,Rejected,Request,Save,Patients,Hospitals,Drivers } from "../Screens/ContactDetails";
-
+import { Request,Save,Rejected,Granted } from "../components/ContactDetails";
 
 export const initialState = {
     grant:Granted,
     request:Request,
     save:Save,
-    reject:Rejected,
-    drivers:Drivers,
-    patients:Patients,
-    hospitals:Hospitals
-    
+    reject:Rejected
 }
 
 
 
 export const reducer = (state=initialState,action) => {
-
     
     return state
 }

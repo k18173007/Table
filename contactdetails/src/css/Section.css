@@ -1,0 +1,34 @@
+h4 {
+  color: "#74B9FF";
+}
+.breaks {
+  word-break: break-all;
+}
+.det {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.tb {
+  height: 140px;
+  overflow-y: scroll;
+}
+
+.frst {
+  background-color: #46e642;
+}
+tbody {
+  font-size: 15px;
+}
+
+td {
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+}
+.f1 {
+  color: #fafafa;
+}
+.f2 {
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #edf2f7;
+}

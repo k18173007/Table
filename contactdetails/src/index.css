@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 35px;
+}
+.gog {
+  margin-top: 35px;
+}
+#InputPassword1,
+#InputEmail1 {
+  border: 1px solid #99ff99;
+}
+.sn {
+  position: absolute;
+  right: 3%;
+  top: 55%;
+  cursor: pointer;
+}
+.km {
+  position: absolute;
+  right: 3%;
+  top: 3%;
+}
+.bgimg {
+  background-image: url("./assests/128896-red-and-blue-abstract-curve-background.jpg");
+}

@@ -1,0 +1,253 @@
+{
+  "data":
+
+{    "Patients" : [
+       {
+         
+         "patientName": "Ramesh",
+         "case": "Accident",
+         "patientAge": 20,
+         "guardianMobileNo": 9898989898,
+         "plevel": 5,
+         "driverId": 1,
+         "permission": false,
+         "active": true,
+         "polyline": "123",
+         "driverLocation": "123",
+         "destinationLocation": "123",
+         "time": "5:00",
+         "requestTime": "4:00",
+         "hospitalName": "Trauma Center"
+       },
+       {
+         
+         "patientName": "Suresh",
+         "case": "Accident",
+         "patientAge": 20,
+         "guardianMobileNo": 9898989898,
+         "plevel": 5,
+         "driverId": 2,
+         "permission": false,
+         "active": true,
+         "polyline": "123",
+         "driverLocation": "123",
+         "destinationLocation": "123",
+         "time": "5:00",
+         "requestTime": "4:00",
+         "hospitalName": "Trauma Center"
+       },
+       {
+         
+         "patientName": "Ram",
+         "case": "Accident",
+         "patientAge": 20,
+         "guardianMobileNo": 9898989898,
+         "plevel": 5,
+         "driverId": 3,
+         "permission": false,
+         "active": true,
+         "polyline": "123",
+         "driverLocation": "123",
+         "destinationLocation": "123",
+         "time": "5:00",
+         "requestTime": "4:00",
+         "hospitalName": "Trauma Center"
+       },
+       {
+         
+         "patientName": "Shyam",
+         "case": "Accident",
+         "patientAge": 20,
+         "guardianMobileNo": 9898989898,
+         "plevel": 5,
+         "driverId": 4,
+         "permission": false,
+         "active": true,
+         "polyline": "123",
+         "driverLocation": "123",
+         "destinationLocation": "123",
+         "time": "5:00",
+         "requestTime": "4:00",
+         "hospitalName": "Trauma Center"
+       },
+       {
+         
+         "patientName": "Hari",
+         "case": "Accident",
+         "patientAge": 20,
+         "guardianMobileNo": 9898989898,
+         "plevel": 5,
+         "driverId": 5,
+         "permission": false,
+         "active": true,
+         "polyline": "123",
+         "driverLocation": "123",
+         "destinationLocation": "123",
+         "time": "5:00",
+         "requestTime": "4:00",
+         "hospitalName": "Trauma Center"
+       },
+       {
+         
+         "patientName": "Nishant",
+         "case": "Accident",
+         "patientAge": 20,
+         "guardianMobileNo": 9898989898,
+         "plevel": 5,
+         "driverId": 6,
+         "permission": false,
+         "active": true,
+         "polyline": "123",
+         "driverLocation": "123",
+         "destinationLocation": "123",
+         "time": "5:00",
+         "requestTime": "4:00",
+         "hospitalName": "Trauma Center"
+       },
+       {
+         
+         "patientName": "Ujjawal",
+         "case": "Accident",
+         "patientAge": 20,
+         "guardianMobileNo": 9898989898,
+         "plevel": 5,
+         "driverId": 7,
+         "permission": false,
+         "active": true,
+         "polyline": "123",
+         "driverLocation": "123",
+         "destinationLocation": "123",
+         "time": "5:00",
+         "requestTime": "4:00",
+         "hospitalName": "Trauma Center"
+       }
+     ],
+     
+      "Hospitals" : [
+       {
+         
+         "hospitalName": "Trauma Center",
+         "hospitalCode": "TCVNS21005",
+         "password": "123",
+         "hospitalLocation": "123",
+         "hospitalAddress": "Banaras Hindu University, Varanasi, UP, 221005",
+         "contact": 9898656565,
+         "email": "abc@abc.com"
+       },
+       {
+         
+         "hospitalName": "SundarLal",
+         "hospitalCode": "SLVNS21005",
+         "password": "123",
+         "hospitalLocation": "123",
+         "hospitalAddress": "Banaras Hindu University, Varanasi, UP, 221005",
+         "contact": 9898656565,
+         "email": "abc@abc.com"
+       }
+     ],
+     
+      "Drivers" : [
+       {
+         
+         "DriverName": "Rajini",
+         "driverContact": 9898989899,
+         "hospitalId": 1,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Nithish",
+         "driverContact": 9898989899,
+         "hospitalId": 1,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Sudeep",
+         "driverContact": 9898989899,
+         "hospitalId": 1,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Rajini",
+         "driverContact": 9898989899,
+         "hospitalId": 1,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Saikiran",
+         "driverContact": 9898989899,
+         "hospitalId": 1,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Harish",
+         "driverContact": 9898989899,
+         "hospitalId": 1,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Ravi",
+         "driverContact": 9898989899,
+         "hospitalId": 1,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Rajini",
+         "driverContact": 9898989899,
+         "hospitalId": 2,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Nithish",
+         "driverContact": 9898989899,
+         "hospitalId": 2,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Sudeep",
+         "driverContact": 9898989899,
+         "hospitalId": 2,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Rajini",
+         "driverContact": 9898989899,
+         "hospitalId": 2,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Saikiran",
+         "driverContact": 9898989899,
+         "hospitalId": 2,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Harish",
+         "driverContact": 9898989899,
+         "hospitalId": 2,
+         "driverLicense": "123"
+       },
+       {
+         
+         "DriverName": "Ravi",
+         "driverContact": 9898989899,
+         "hospitalId": 2,
+         "driverLicense": "123"
+       }
+     ]}
+  
+}
+  
+
+

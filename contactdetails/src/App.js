@@ -1,24 +1,25 @@
-import React from 'react';
-import './App.css';
-import MainComponent from "./components/MainComponent";
-import { BrowserRouter } from 'react-router-dom'
+import React, { Component } from "react";
+import { Route, Redirect, Switch, withRouter ,BrowserRouter } from "react-router-dom";
+import {RequestMainC,DriverDetailsMainC} from "./Screens/MainC";
 import {Provider} from 'react-redux';
 import {ConfigurStore} from './redux/index';
+import MainComponent from "./Screens/MainComponent";
 
 const store=ConfigurStore();
 
-function App() {
-  return (
-    <div className="App">
-      <div className="container-fluid p-0">
+class App extends Component {
+  render() {
+    return (
+      <div>
     <Provider store={store}>
+
         <BrowserRouter>
-          <MainComponent />
+        <MainComponent />
         </BrowserRouter>
         </Provider>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
